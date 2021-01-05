@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Notes.Data.Notes>
+@{
+
+}
+<table id="notes" class="table table-hover">
+    <thead>
+        <th>Author</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Time added</th>
+        <th>Details</th>
+    </thead>
+    <tbody>
+        @foreach (var note in Model)
+        {
+            <tr class="table-dark">
+                <td>@note.Author</td>
+                @if (note.Title.Length >= 30)
+                {
+                    <td>@string.Concat(note.Title.Substring(0, 30), " . . .")</td>
+                }
+                else
+                {
+                    <td>@note.Title</td>
+                }
+                @if (@note.Content.Length >= 30)
+                {
+                    <td>@string.Concat(note.Content.Substring(0, 30), " . . .")</td>
+                }
+                else
+                {
+                    <td>@note.Content</td>
+
+                }
+                <td>@note.TimeAdded</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@note.NotesId">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts
+{
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#notes').DataTable();
+        });
+    </script>
+}

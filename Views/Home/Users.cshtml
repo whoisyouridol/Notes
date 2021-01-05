@@ -1,0 +1,23 @@
+﻿@model IQueryable<Notes.Areas.Identity.Data.ApplicationUser>
+@{
+    ViewData["Title"] = "Users";
+}
+<h1>Users</h1>
+
+    <table id="notes" class="table table-hover">
+        <thead>
+        <th>User name</th>
+        <th>Email</th>
+        <th>Password hash</th>
+        </thead>
+        <tbody>
+        @foreach (var user in Model)
+        {
+            <tr class="table-dark">
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.PasswordHash</td>
+            </tr>
+        }
+        </tbody>
+    </table>
