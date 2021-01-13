@@ -1,1 +1,2 @@
 # Notes
+This is my first web-applicaiton using ASP.NET Core. Here I tried to create a website which allow for authenticated user to create note with title,some ontent and file.Then user cn view his notes and download file also. ORM I used was EF Core and I applied code-first approach. As server I took MSSQL Server. In this app, if there is no user I create him and then this useer will be administrator. Admin can view users. I pinned demo-video in this repository(Check folder Demo).
